@@ -1,0 +1,38 @@
+<ng-template #content let-modal>
+  <div class="modal-header" style="background-color: #f0eacf;">
+    <h4 class="modal-title appcolor" id="modal-search-project">Select Project</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+   
+  <div class="modal-body" style="background-color: #f0eacf;">
+    <div class="input-group">
+      <label for="searchKey" class="appcolor">Search Project &nbsp;</label>
+      <input type="text" class="form-control" [(ngModel)]="searchKey"  placeholder="search..." >
+    </div><div>&nbsp;</div>
+    <div>
+      <Table class="table table-success table-hover"
+      style="background-color: #dfce84;border-radius: 10px;border: none">
+        <thead class="appcolor">
+          <tr>
+            <th>Project Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Select</th>
+          </tr>
+        </thead>
+        <tr class="table-hover" *ngFor="let project of projectList | projectSearch :searchKey ">           
+          <td *ngIf="!project.completed">{{project.projectName}}</td>
+          <td *ngIf="!project.completed">{{project.startDate}}</td>
+          <td *ngIf="!project.completed">{{project.startDate}}</td>
+          <td *ngIf="!project.completed">
+            <input type="radio" name="radioGroup" value="project" (click)="select(project)" />
+          </td>
+        </tr>
+      </Table>
+    </div>
+  </div>
+</ng-template>
+      
+  <button class="btn btn-info btncolor" (click)="open(content)">Search</button>

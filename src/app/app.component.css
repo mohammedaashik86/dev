@@ -1,0 +1,8 @@
+.button-radious
+{
+    border-radius: 50%
+}
+
+.grad1 {
+    background-image: linear-gradient(to right, rgba(212,182,45,1), rgba(212,182,45,0)); /* Standard syntax (must be last) */
+  }
